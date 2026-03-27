@@ -566,28 +566,66 @@ a:hover {
   margin: 0;
 }
 
-/* TikTok link */
-.result__tiktok {
+/* TikTok card */
+.tiktok-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
   margin-top: var(--space-xl);
-  padding-top: var(--space-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  text-align: center;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.tiktok-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: var(--surface-hover);
+  transform: translateY(-1px);
+}
+
+.tiktok-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+}
+
+.tiktok-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tiktok-card__followers {
   font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tiktok-card__handle {
+  font-size: var(--text-xs);
   color: var(--text-muted);
 }
 
-.result__tiktok p {
-  margin-bottom: var(--space-xs);
+.tiktok-card__arrow {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  transition: transform var(--duration-fast) ease;
 }
 
-.result__tiktok-link {
-  font-weight: 600;
+.tiktok-card:hover .tiktok-card__arrow {
+  transform: translateX(3px);
   color: var(--accent);
-  text-decoration: none;
-}
-
-.result__tiktok-link:hover {
-  text-decoration: underline;
 }
 
 /* --- Progress Bar --- */
@@ -1293,8 +1331,14 @@ a:hover {
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) .screen--result .trait + .trait,
   :root:not([data-theme="dark"]) .screen--result .result__verse,
-  :root:not([data-theme="dark"]) .screen--result .result__tiktok {
+  :root:not([data-theme="dark"]) .screen--result .tiktok-card {
     border-color: rgba(0, 0, 0, 0.08);
+  }
+  :root:not([data-theme="dark"]) .screen--result .tiktok-card:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+  :root:not([data-theme="dark"]) .screen--result .tiktok-card__icon {
+    background: rgba(0, 0, 0, 0.05);
   }
   :root:not([data-theme="dark"]) .screen--result .score-row__bar {
     background: rgba(0, 0, 0, 0.06);
@@ -1305,8 +1349,14 @@ a:hover {
 }
 [data-theme="light"] .screen--result .trait + .trait,
 [data-theme="light"] .screen--result .result__verse,
-[data-theme="light"] .screen--result .result__tiktok {
+[data-theme="light"] .screen--result .tiktok-card {
   border-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .screen--result .tiktok-card:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+[data-theme="light"] .screen--result .tiktok-card__icon {
+  background: rgba(0, 0, 0, 0.05);
 }
 [data-theme="light"] .screen--result .score-row__bar {
   background: rgba(0, 0, 0, 0.06);
