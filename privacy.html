@@ -19,6 +19,33 @@
       --accent: #C9A84C;
     }
 
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --bg: #F8F6F3;
+        --surface: #EFECEA;
+        --text: #2A2520;
+        --text-muted: #6B6560;
+        --accent: #A07C35;
+      }
+    }
+
+    [data-theme="light"] {
+      --bg: #F8F6F3;
+      --surface: #EFECEA;
+      --text: #2A2520;
+      --text-muted: #6B6560;
+      --accent: #A07C35;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) .footer-privacy {
+        border-top-color: rgba(0, 0, 0, 0.08);
+      }
+    }
+    [data-theme="light"] .footer-privacy {
+      border-top-color: rgba(0, 0, 0, 0.08);
+    }
+
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
       background: var(--bg);
@@ -153,5 +180,8 @@
       <p>&copy; 2026 CouplesBienHeureux &middot; Relationnel &amp; Spiritualité</p>
     </footer>
   </main>
+  <script>
+    (function(){try{var t=localStorage.getItem('cbh-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+  </script>
 </body>
 </html>
