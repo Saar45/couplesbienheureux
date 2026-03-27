@@ -2,6 +2,7 @@ import { createHash } from 'crypto';
 
 // Allowed origins — add your production domain here
 const ALLOWED_ORIGINS = [
+  'https://couplesbienheureux-quizz.netlify.app',
   'https://couplesbienheureux.com',
   'https://www.couplesbienheureux.com',
 ];
