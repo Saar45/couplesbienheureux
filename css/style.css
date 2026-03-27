@@ -210,6 +210,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 h1, h2, h3 {
@@ -270,6 +271,14 @@ a:hover {
   padding: var(--space-xl) var(--space-lg);
   position: relative;
   background: var(--bg);
+}
+
+/* Result and form screens have long content — don't vertically center, let them scroll */
+.screen--result,
+.screen--form {
+  justify-content: flex-start;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-xl);
 }
 
 .screen.active {
@@ -1291,17 +1300,11 @@ a:hover {
    8. FOOTER
    ------------------------------------------ */
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-lg) var(--space-md);
   text-align: center;
   font-size: var(--text-xs);
   color: var(--text-muted);
   opacity: 0.5;
-  pointer-events: none;
-  z-index: 50;
 }
 
 /* --- Theme Toggle --- */
@@ -1402,9 +1405,7 @@ a:hover {
   }
 
   .footer {
-    position: relative;
     padding: var(--space-xl) var(--space-md);
-    opacity: 0.5;
   }
 }
 
