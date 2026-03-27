@@ -1,0 +1,21 @@
+# Environment variables
+.env
+.env.*
+.env.local
+
+# Netlify local
+.netlify/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Node (if netlify dev creates it)
+node_modules/
+
+# History
+.history/
