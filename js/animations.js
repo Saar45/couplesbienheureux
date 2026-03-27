@@ -10,6 +10,13 @@
   var DURATION_ENTER = reducedMotion ? 10 : 500;
   var DURATION_EXIT = reducedMotion ? 10 : 200;
 
+  // Defer result-profile fonts — load in background while user takes the quiz
+  var deferredFontsUrl = 'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=Jost:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap';
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = deferredFontsUrl;
+  document.head.appendChild(link);
+
   function wait(ms) {
     return new Promise(function (resolve) {
       setTimeout(resolve, ms);

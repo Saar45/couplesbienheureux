@@ -13,10 +13,11 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="CouplesBienHeureux">
 
-  <!-- Fonts -->
+  <!-- Fonts: critical (cover + quiz) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=Jost:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Fonts: result profiles — deferred via JS in animations.js -->
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -314,8 +315,14 @@
       <button class="btn--back fade-child" type="button" data-back="7" aria-label="Retour à la dernière question">
         <span aria-hidden="true">&larr;</span> Retour
       </button>
-      <h2 class="form__title fade-child">Votre profil est prêt&nbsp;!</h2>
-      <p class="form__subtitle fade-child">Entrez votre email pour découvrir votre résultat et recevoir nos conseils pour couples.</p>
+
+      <!-- Profile preview — populated by JS -->
+      <div class="form__preview fade-child" id="form-preview">
+        <span class="form__preview-badge">Votre profil</span>
+        <p class="form__preview-name" id="form-preview-name"></p>
+      </div>
+
+      <p class="form__subtitle fade-child">Recevez votre analyse complète — forces, défis et conseil deen personnalisé — directement dans votre boîte mail.</p>
 
       <form id="subscribe-form" class="form fade-child" action="/api/subscribe" method="POST" novalidate>
         <!-- Honeypot — invisible to humans -->
@@ -417,6 +424,11 @@
         <button class="btn--share" type="button" data-share-profile>Partager mon résultat</button>
         <button class="btn--retake" type="button">Refaire le quiz</button>
       </div>
+
+      <div class="result__tiktok fade-child">
+        <p>Rejoignez <strong>46 000+ couples</strong> sur TikTok</p>
+        <a href="https://www.tiktok.com/@couplesbienheureux" target="_blank" rel="noopener" class="result__tiktok-link">@couplesbienheureux</a>
+      </div>
     </div>
   </section>
 
@@ -482,6 +494,11 @@
       <div class="result__actions fade-child">
         <button class="btn--share" type="button" data-share-profile>Partager mon résultat</button>
         <button class="btn--retake" type="button">Refaire le quiz</button>
+      </div>
+
+      <div class="result__tiktok fade-child">
+        <p>Rejoignez <strong>46 000+ couples</strong> sur TikTok</p>
+        <a href="https://www.tiktok.com/@couplesbienheureux" target="_blank" rel="noopener" class="result__tiktok-link">@couplesbienheureux</a>
       </div>
     </div>
   </section>
@@ -555,6 +572,11 @@
         <button class="btn--share" type="button" data-share-profile>Partager mon résultat</button>
         <button class="btn--retake" type="button">Refaire le quiz</button>
       </div>
+
+      <div class="result__tiktok fade-child">
+        <p>Rejoignez <strong>46 000+ couples</strong> sur TikTok</p>
+        <a href="https://www.tiktok.com/@couplesbienheureux" target="_blank" rel="noopener" class="result__tiktok-link">@couplesbienheureux</a>
+      </div>
     </div>
   </section>
 
@@ -623,6 +645,11 @@
       <div class="result__actions fade-child">
         <button class="btn--share" type="button" data-share-profile>Partager mon résultat</button>
         <button class="btn--retake" type="button">Refaire le quiz</button>
+      </div>
+
+      <div class="result__tiktok fade-child">
+        <p>Rejoignez <strong>46 000+ couples</strong> sur TikTok</p>
+        <a href="https://www.tiktok.com/@couplesbienheureux" target="_blank" rel="noopener" class="result__tiktok-link">@couplesbienheureux</a>
       </div>
     </div>
   </section>

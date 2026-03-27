@@ -47,9 +47,17 @@
       window.animations.updateProgress(step);
     }
 
-    // Calculate result before navigating to result screen
-    if (step === 9 && !state.resultProfile) {
+    // Calculate result early — for form preview (step 8) or result screen (step 9)
+    if ((step === 8 || step === 9) && !state.resultProfile) {
       calculateResult();
+    }
+
+    // Populate form preview with profile name
+    if (step === 8 && state.resultProfile) {
+      var previewName = document.getElementById('form-preview-name');
+      if (previewName) {
+        previewName.textContent = PROFILE_NAMES[state.resultProfile] || '';
+      }
     }
 
     var targetEl = getScreenEl(step);
