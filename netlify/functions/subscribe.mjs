@@ -11,8 +11,8 @@ const ALLOWED_ORIGINS = [
 function isAllowedOrigin(origin) {
   if (!origin) return false;
   if (ALLOWED_ORIGINS.includes(origin)) return true;
-  // Netlify deploy previews: https://<deploy-id>--<site>.netlify.app
-  if (/^https:\/\/[a-z0-9-]+--[a-z0-9-]+\.netlify\.app$/.test(origin)) return true;
+  // Netlify deploy previews for THIS site only
+  if (/^https:\/\/[a-z0-9-]+--couplesbienheureux-quizz\.netlify\.app$/.test(origin)) return true;
   // Local development
   if (origin === 'http://localhost:8888' || origin === 'http://localhost:3456') return true;
   return false;

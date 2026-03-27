@@ -111,25 +111,44 @@
     var container = document.getElementById('scores-' + winner);
     if (!container) return;
 
-    var total = 7;
-    var html = '<p class="result__scores-title">Vos réponses</p>';
+    // Clear previous content safely
+    while (container.firstChild) container.removeChild(container.firstChild);
 
+    var title = document.createElement('p');
+    title.className = 'result__scores-title';
+    title.textContent = 'Vos réponses';
+    container.appendChild(title);
+
+    var total = 7;
     for (var i = 0; i < VALID_VALUES.length; i++) {
       var letter = VALID_VALUES[i];
       var count = state.scores[letter];
       var pct = Math.round((count / total) * 100);
       var isWinner = letter === winner;
 
-      html += '<div class="score-row' + (isWinner ? ' is-winner' : '') + '">'
-            + '<span class="score-row__label">' + letter + '</span>'
-            + '<div class="score-row__bar">'
-            + '<div class="score-row__fill' + (isWinner ? ' is-winner' : '') + '" style="width:' + pct + '%"></div>'
-            + '</div>'
-            + '<span class="score-row__count">' + count + '/7</span>'
-            + '</div>';
-    }
+      var row = document.createElement('div');
+      row.className = 'score-row' + (isWinner ? ' is-winner' : '');
 
-    container.innerHTML = html;
+      var label = document.createElement('span');
+      label.className = 'score-row__label';
+      label.textContent = letter;
+
+      var bar = document.createElement('div');
+      bar.className = 'score-row__bar';
+      var fill = document.createElement('div');
+      fill.className = 'score-row__fill' + (isWinner ? ' is-winner' : '');
+      fill.style.width = pct + '%';
+      bar.appendChild(fill);
+
+      var countEl = document.createElement('span');
+      countEl.className = 'score-row__count';
+      countEl.textContent = count + '/7';
+
+      row.appendChild(label);
+      row.appendChild(bar);
+      row.appendChild(countEl);
+      container.appendChild(row);
+    }
   }
 
   function resetQuiz() {
